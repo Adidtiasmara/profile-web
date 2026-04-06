@@ -26,7 +26,6 @@ class SkillResource extends Resource
     {
         return $schema->schema([
         TextInput::make('name')->required(),
-        TextInput::make('level')->numeric()->label('Level (%)'),
     ]);
     }
 

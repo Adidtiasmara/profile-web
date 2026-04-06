@@ -12,9 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('projects', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        $table->id();
+        $table->foreignId('profile_id')->constrained()->cascadeOnDelete();
+        $table->string('title');
+        $table->text('description')->nullable();
+        $table->string('github_link')->nullable();
+        $table->string('image')->nullable();
+        $table->timestamps();
+    });
     }
 
     /**
