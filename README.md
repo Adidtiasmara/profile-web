@@ -1,6 +1,6 @@
-# 💻 My Digital Command Center — [Nama Kamu]
+# 💻 My Digital Portofolio— [Muhammad Firman Aditiasmara]
 
-Website ini adalah **Portfolio** pribadi saya yang berfungsi sebagai pusat dokumentasi seluruh proyek, mulai dari tugas Kuliah, hingga eksperimen lainnya.
+Website ini adalah **Portofolio** pribadi saya yang berfungsi sebagai pusat dokumentasi seluruh proyek, mulai dari tugas Kuliah, hingga eksperimen lainnya.
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=laravel,php,psql,mysql,tailwind,filament,arch,linux" />
@@ -16,7 +16,6 @@ Seorang developer diukur dari konsistensinya. Berikut adalah statistik aktivitas
   <br>
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Adidtiasmara&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
 </p>
-
 ---
 
 ## 📂 Project Structure
