@@ -1,4 +1,4 @@
-# 💻 My Digital Portofolio— [Muhammad Firman Aditiasmara]
+# 💻 My Digital Portofolio— Muhammad Firman Aditiasmara 
 
 Website ini adalah **Portofolio** pribadi saya yang berfungsi sebagai pusat dokumentasi seluruh proyek, mulai dari tugas Kuliah, hingga eksperimen lainnya.
 
@@ -12,9 +12,9 @@ Website ini adalah **Portofolio** pribadi saya yang berfungsi sebagai pusat doku
 Seorang developer diukur dari konsistensinya. Berikut adalah statistik aktivitas koding saya secara *real-time*:
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Adidtiasmara&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" />
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=Adidtiasmara&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" />
   <br>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Adidtiasmara&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Adidtiasmara&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
 </p>
 ---
 
