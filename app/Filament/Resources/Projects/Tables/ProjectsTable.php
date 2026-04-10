@@ -15,14 +15,23 @@ class ProjectsTable
     {
         return $table
             ->columns([
-                TextColumn::make('profile_id')
+                TextColumn::make('profile.name')
+                    ->label('Profil')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('title')
-                    ->searchable(),
+                    ->label('Judul Proyek')
+                    ->searchable()
+                    ->weight('bold'),
                 TextColumn::make('github_link')
+                    ->label('GitHub')
+                    ->url(fn ($record) => $record->github_link)
+                    ->openUrlInNewTab()
                     ->searchable(),
-                ImageColumn::make('image'),
+                ImageColumn::make('image')
+                    ->disk('public')
+                    ->label('Thumbnail')
+                    ->height(80),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

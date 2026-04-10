@@ -5,18 +5,18 @@ namespace App\Filament\Resources\Profiles;
 use App\Filament\Resources\Profiles\Pages\CreateProfile;
 use App\Filament\Resources\Profiles\Pages\EditProfile;
 use App\Filament\Resources\Profiles\Pages\ListProfiles;
-use App\Filament\Resources\Profiles\Schemas\ProfileForm;
 use App\Filament\Resources\Profiles\Tables\ProfilesTable;
 use App\Models\Profile;
 use BackedEnum;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Resource;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
-use Filament\Schemas\Components\Section;
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
 
 class ProfileResource extends Resource
 {
@@ -26,43 +26,65 @@ class ProfileResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    public static function form(Schema $schema): Schema
+    {
+        return $schema
+            ->schema([
+                Section::make('Informasi Utama')
+                    ->schema([
+                        TextInput::make('name')
+                            ->required(),
+                        TextInput::make('age')
+                            ->numeric()
+                            ->label('Umur'),
+                        TextInput::make('title')
+                            ->label('Profesi'),
+                        TextInput::make('origin')
+                            ->label('Asal Kota'),
+                        Textarea::make('bio')
+                            ->rows(4),
+                    ]),
 
-public static function form(Schema $schema): Schema
-{
-    return $schema
-        ->schema([
-            Section::make('Informasi Utama')
-                ->schema([
-                    TextInput::make('name')
-                        ->required(),
+                Section::make('Skills')
+                    ->schema([
+                        Repeater::make('skills')
+                            ->relationship()
+                            ->schema([
+                                TextInput::make('name')
+                                    ->required()
+                                    ->label('Nama Skill'),
+                            ])
+                            ->columns(2)
+                            ->defaultItems(1),
+                    ]),
 
-                    TextInput::make('title')
-                        ->label('Profesi'),
+                Section::make('Media')
+                    ->schema([
+                        FileUpload::make('photo')
+                            ->image()
+                            ->directory('profiles')
+                            ->disk('public')
+                            ->imagePreviewHeight('150'),
 
-                    Textarea::make('bio')
-                        ->rows(4),
-                ]),
+                        FileUpload::make('cv')
+                            ->directory('cv')
+                            ->disk('public'),
+                    ]),
 
-            Section::make('Media')
-                ->schema([
-                    FileUpload::make('photo')
-                        ->image()
-                        ->directory('profiles')
-                        ->imagePreviewHeight('150'),
-
-                    FileUpload::make('cv')
-                        ->directory('cv'),
-                ]),
-
-            Section::make('Social')
-                ->schema([
-                    TextInput::make('github_username'),
-
-                    TextInput::make('email')
-                        ->email(),
-                ]),
-        ]);
-}
+                Section::make('Social')
+                    ->schema([
+                        TextInput::make('github_username'),
+                        TextInput::make('linkedin')
+                            ->prefix('https://www.linkedin.com/in/')
+                            ->placeholder('username'),
+                        TextInput::make('instagram')
+                            ->prefix('https://www.instagram.com/')
+                            ->placeholder('username'),
+                        TextInput::make('email')
+                            ->email(),
+                    ]),
+            ]);
+    }
 
     public static function table(Table $table): Table
     {
